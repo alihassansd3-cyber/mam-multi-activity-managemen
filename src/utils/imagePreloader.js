@@ -22,7 +22,34 @@ export const preloadAllImages = () => {
     
     // Electrical service detail images
     '/src/assets/elec 1.jpg',
-    '/src/assets/elec 2.jpg'
+    '/src/assets/elec 2.jpg',
+    
+    // Gardening service detail images
+    '/src/assets/garden 1.jpg',
+    '/src/assets/garden 2.jpg',
+    '/src/assets/garden 3.jpg',
+    
+    // House moving service detail images
+    '/src/assets/house 1.jpg',
+    '/src/assets/house 2.jpg',
+    
+    // Plumbing service detail images
+    '/src/assets/plumber 1.jpg',
+    '/src/assets/plumber 2.jpg',
+    
+    // Wedding light service detail images
+    '/src/assets/weeding 2.jpg',
+    '/src/assets/wedding 1.jpg',
+    
+    // House & marquee decorating service detail images
+    '/src/assets/maurqi1.jpg',
+    '/src/assets/marqi2.jpg',
+    
+    // Services page image
+    '/src/assets/pexels-alexapopovich-16552854.jpg',
+    
+    // About page image
+    '/src/assets/pexels-tima-miroshnichenko-6196677.jpg'
   ];
 
   // Filter out already cached images

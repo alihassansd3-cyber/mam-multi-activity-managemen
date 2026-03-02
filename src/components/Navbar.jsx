@@ -35,16 +35,16 @@ const Navbar = memo(() => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
+            <a href="/" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
               Home
             </a>
-            <a href="#about" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
+            <a href="/about" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
               About
             </a>
-            <a href="#services" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
+            <a href="/services" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
               Services
             </a>
-            <a href="#contact" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
+            <a href="/#contact" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
               Contact
             </a>
           </div>
@@ -74,28 +74,28 @@ const Navbar = memo(() => {
         <div className="md:hidden bg-white/10 backdrop-blur-lg border-t border-white/20">
           <div className="px-4 pt-2 pb-4 space-y-2">
             <a
-              href="#home"
+              href="/"
               className="block px-4 py-3 text-white hover:bg-white/20 rounded-lg font-medium transition-all"
               onClick={closeMenu}
             >
               Home
             </a>
             <a
-              href="#about"
+              href="/about"
               className="block px-4 py-3 text-white hover:bg-white/20 rounded-lg font-medium transition-all"
               onClick={closeMenu}
             >
               About
             </a>
             <a
-              href="#services"
+              href="/services"
               className="block px-4 py-3 text-white hover:bg-white/20 rounded-lg font-medium transition-all"
               onClick={closeMenu}
             >
               Services
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               className="block px-4 py-3 text-white hover:bg-white/20 rounded-lg font-medium transition-all"
               onClick={closeMenu}
             >

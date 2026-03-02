@@ -15,16 +15,143 @@ const ServiceDetail = () => {
 
   // Image slider for electrical services
   const electricalImages = [
-    '/src/assets/elec 1.jpg',
-    '/src/assets/elec 2.jpg'
+    {
+      url: '/src/assets/elec 1.jpg',
+      title: 'Professional Electrical Installation',
+      description: 'Expert wiring and electrical panel setup with safety compliance'
+    },
+    {
+      url: '/src/assets/elec 2.jpg',
+      title: 'Electrical Maintenance & Repair',
+      description: 'Regular maintenance and emergency repair services available 24/7'
+    }
   ];
 
+  // Image slider for gardening services
+  const gardeningImages = [
+    {
+      url: '/src/assets/garden 1.jpg',
+      title: 'Professional Lawn Care',
+      description: 'Expert lawn mowing, trimming and maintenance services'
+    },
+    {
+      url: '/src/assets/garden 2.jpg',
+      title: 'Garden Landscaping',
+      description: 'Beautiful garden design and landscaping solutions'
+    },
+    {
+      url: '/src/assets/garden 3.jpg',
+      title: 'Garden Maintenance',
+      description: 'Regular garden upkeep and seasonal cleanup services'
+    }
+  ];
+
+  // Image slider for house moving services
+  const houseMovingImages = [
+    {
+      url: '/src/assets/house 1.jpg',
+      title: 'Professional House Moving',
+      description: 'Safe and reliable residential moving services with care',
+      position: 'center'
+    },
+    {
+      url: '/src/assets/house 2.jpg',
+      title: 'Packing & Transportation',
+      description: 'Expert packing and secure transportation of your belongings',
+      position: 'center top'
+    }
+  ];
+
+  // Image slider for plumbing services
+  const plumbingImages = [
+    {
+      url: '/src/assets/plumber 1.jpg',
+      title: 'Professional Plumbing Services',
+      description: 'Expert pipe installation, repairs and maintenance',
+      position: 'center'
+    },
+    {
+      url: '/src/assets/plumber 2.jpg',
+      title: 'Emergency Plumbing Solutions',
+      description: 'Fast and reliable plumbing repairs available 24/7',
+      position: 'center'
+    }
+  ];
+
+  // Image slider for wedding light services
+  const weddingImages = [
+    {
+      url: '/src/assets/weeding 2.jpg',
+      title: 'Stunning Wedding Lighting',
+      description: 'Beautiful light decorations for your special day',
+      position: 'center'
+    },
+    {
+      url: '/src/assets/wedding 1.jpg',
+      title: 'Elegant Event Lighting',
+      description: 'Professional lighting setup for weddings and events',
+      position: 'center'
+    }
+  ];
+
+  // Image slider for house & marquee decorating services
+  const marqueeImages = [
+    {
+      url: '/src/assets/maurqi1.jpg',
+      title: 'Elegant Marquee Decoration',
+      description: 'Beautiful marquee setup for weddings and special events',
+      position: 'center'
+    },
+    {
+      url: '/src/assets/marqi2.jpg',
+      title: 'House Event Decoration',
+      description: 'Professional house decoration for parties and celebrations',
+      position: 'center'
+    }
+  ];
+
+  // Auto-slide effect
+  useEffect(() => {
+    if (serviceId === 'electrical-services' || serviceId === 'gardening-services' || serviceId === 'house-moving' || serviceId === 'plumbing-services' || serviceId === 'wedding-light' || serviceId === 'house-marquee-decorating') {
+      const interval = setInterval(() => {
+        if (serviceId === 'electrical-services') {
+          setCurrentImageIndex((prev) => (prev + 1) % electricalImages.length);
+        } else if (serviceId === 'gardening-services') {
+          setCurrentImageIndex((prev) => (prev + 1) % gardeningImages.length);
+        } else if (serviceId === 'house-moving') {
+          setCurrentImageIndex((prev) => (prev + 1) % houseMovingImages.length);
+        } else if (serviceId === 'plumbing-services') {
+          setCurrentImageIndex((prev) => (prev + 1) % plumbingImages.length);
+        } else if (serviceId === 'wedding-light') {
+          setCurrentImageIndex((prev) => (prev + 1) % weddingImages.length);
+        } else if (serviceId === 'house-marquee-decorating') {
+          setCurrentImageIndex((prev) => (prev + 1) % marqueeImages.length);
+        }
+      }, 4000); // Change image every 4 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [serviceId, electricalImages.length, gardeningImages.length, houseMovingImages.length, plumbingImages.length, weddingImages.length, marqueeImages.length]);
+
+  // Get current images based on service
+  const getCurrentImages = () => {
+    if (serviceId === 'electrical-services') return electricalImages;
+    if (serviceId === 'gardening-services') return gardeningImages;
+    if (serviceId === 'house-moving') return houseMovingImages;
+    if (serviceId === 'plumbing-services') return plumbingImages;
+    if (serviceId === 'wedding-light') return weddingImages;
+    if (serviceId === 'house-marquee-decorating') return marqueeImages;
+    return [];
+  };
+
+  const currentImages = getCurrentImages();
+
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % electricalImages.length);
+    setCurrentImageIndex((prev) => (prev + 1) % currentImages.length);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + electricalImages.length) % electricalImages.length);
+    setCurrentImageIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length);
   };
 
   const servicesData = {
@@ -379,60 +506,487 @@ const ServiceDetail = () => {
           </div>
         </div>
 
-        {/* Image Slider - Only for Electrical Services */}
-        {serviceId === 'electrical-services' && (
-          <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Work Gallery</h3>
-            <div className="relative max-w-4xl mx-auto">
-              {/* Main Image */}
-              <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden">
-                <img 
-                  src={electricalImages[currentImageIndex]} 
-                  alt={`Electrical work ${currentImageIndex + 1}`}
-                  className="w-full h-full object-cover"
-                />
+        {/* Image Slider - Only for Wedding Light Services */}
+        {serviceId === 'wedding-light' && (
+          <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-8 shadow-lg mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-3 text-center">Our Work Gallery</h3>
+            <p className="text-center text-gray-600 mb-8">Stunning wedding and event lighting decorations</p>
+            
+            <div className="relative max-w-3xl mx-auto">
+              {/* Main Image Slider */}
+              <div className="relative h-[350px] rounded-xl overflow-hidden shadow-2xl bg-gray-900">
+                {currentImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <div className="w-full h-full relative">
+                      <img 
+                        src={image.url} 
+                        alt={image.title}
+                        className="absolute inset-0 w-full h-full"
+                        style={{ 
+                          objectFit: 'cover',
+                          objectPosition: image.position || 'center'
+                        }}
+                      />
+                    </div>
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    
+                    {/* Image Details */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h4 className="text-xl font-bold mb-2">{image.title}</h4>
+                      <p className="text-sm text-gray-200">{image.description}</p>
+                    </div>
+                  </div>
+                ))}
                 
                 {/* Navigation Buttons */}
                 <button 
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all hover:scale-110"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
                   aria-label="Previous image"
                 >
-                  <ChevronLeft size={24} className="text-gray-800" />
+                  <ChevronLeft size={20} className="text-gray-800" />
                 </button>
                 <button 
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all hover:scale-110"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
                   aria-label="Next image"
                 >
-                  <ChevronRight size={24} className="text-gray-800" />
+                  <ChevronRight size={20} className="text-gray-800" />
                 </button>
-
-                {/* Image Counter */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                  {currentImageIndex + 1} / {electricalImages.length}
-                </div>
               </div>
 
-              {/* Thumbnail Navigation */}
-              <div className="flex gap-4 justify-center mt-6">
-                {electricalImages.map((img, index) => (
+              {/* Dots Navigation */}
+              <div className="flex gap-2 justify-center mt-6">
+                {currentImages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-20 h-20 rounded-lg overflow-hidden border-4 transition-all ${
+                    className={`transition-all duration-300 rounded-full ${
                       currentImageIndex === index 
-                        ? 'border-indigo-600 scale-110' 
-                        : 'border-gray-300 hover:border-indigo-400'
+                        ? 'w-8 h-3 bg-gradient-to-r from-pink-600 to-purple-600' 
+                        : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Image Counter */}
+              <div className="text-center mt-4">
+                <span className="text-sm font-semibold text-gray-600">
+                  {currentImageIndex + 1} / {currentImages.length}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Image Slider - Only for Electrical Services */}
+        {serviceId === 'electrical-services' && (
+          <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 shadow-lg mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-3 text-center">Our Work Gallery</h3>
+            <p className="text-center text-gray-600 mb-8">Professional electrical installations and repairs</p>
+            
+            <div className="relative max-w-3xl mx-auto">
+              {/* Main Image Slider */}
+              <div className="relative h-[350px] rounded-xl overflow-hidden shadow-2xl bg-gray-900">
+                {currentImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      index === currentImageIndex ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
-                    <img 
-                      src={img} 
-                      alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
+                    <div className="w-full h-full relative">
+                      <img 
+                        src={image.url} 
+                        alt={image.title}
+                        className="absolute inset-0 w-full h-full"
+                        style={{ 
+                          objectFit: 'cover',
+                          objectPosition: 'center'
+                        }}
+                      />
+                    </div>
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    
+                    {/* Image Details */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h4 className="text-xl font-bold mb-2">{image.title}</h4>
+                      <p className="text-sm text-gray-200">{image.description}</p>
+                    </div>
+                  </div>
                 ))}
+                
+                {/* Navigation Buttons */}
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={20} className="text-gray-800" />
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={20} className="text-gray-800" />
+                </button>
+              </div>
+
+              {/* Dots Navigation */}
+              <div className="flex gap-2 justify-center mt-6">
+                {currentImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      currentImageIndex === index 
+                        ? 'w-8 h-3 bg-gradient-to-r from-indigo-600 to-cyan-600' 
+                        : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Image Counter */}
+              <div className="text-center mt-4">
+                <span className="text-sm font-semibold text-gray-600">
+                  {currentImageIndex + 1} / {currentImages.length}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Image Slider - Only for Gardening Services */}
+        {serviceId === 'gardening-services' && (
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 shadow-lg mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-3 text-center">Our Work Gallery</h3>
+            <p className="text-center text-gray-600 mb-8">Professional garden maintenance and landscaping</p>
+            
+            <div className="relative max-w-3xl mx-auto">
+              {/* Main Image Slider */}
+              <div className="relative h-[350px] rounded-xl overflow-hidden shadow-2xl bg-gray-900">
+                {currentImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <div className="w-full h-full relative">
+                      <img 
+                        src={image.url} 
+                        alt={image.title}
+                        className="absolute inset-0 w-full h-full"
+                        style={{ 
+                          objectFit: 'cover',
+                          objectPosition: 'center'
+                        }}
+                      />
+                    </div>
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    
+                    {/* Image Details */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h4 className="text-xl font-bold mb-2">{image.title}</h4>
+                      <p className="text-sm text-gray-200">{image.description}</p>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Navigation Buttons */}
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={20} className="text-gray-800" />
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={20} className="text-gray-800" />
+                </button>
+              </div>
+
+              {/* Dots Navigation */}
+              <div className="flex gap-2 justify-center mt-6">
+                {currentImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      currentImageIndex === index 
+                        ? 'w-8 h-3 bg-gradient-to-r from-green-600 to-emerald-600' 
+                        : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Image Counter */}
+              <div className="text-center mt-4">
+                <span className="text-sm font-semibold text-gray-600">
+                  {currentImageIndex + 1} / {currentImages.length}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Image Slider - Only for House Moving Services */}
+        {serviceId === 'house-moving' && (
+          <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 shadow-lg mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-3 text-center">Our Work Gallery</h3>
+            <p className="text-center text-gray-600 mb-8">Professional house moving and relocation services</p>
+            
+            <div className="relative max-w-3xl mx-auto">
+              {/* Main Image Slider */}
+              <div className="relative h-[350px] rounded-xl overflow-hidden shadow-2xl bg-gray-900">
+                {currentImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <div className="w-full h-full relative">
+                      <img 
+                        src={image.url} 
+                        alt={image.title}
+                        className="absolute inset-0 w-full h-full"
+                        style={{ 
+                          objectFit: 'cover',
+                          objectPosition: image.position || 'center'
+                        }}
+                      />
+                    </div>
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    
+                    {/* Image Details */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h4 className="text-xl font-bold mb-2">{image.title}</h4>
+                      <p className="text-sm text-gray-200">{image.description}</p>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Navigation Buttons */}
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={20} className="text-gray-800" />
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={20} className="text-gray-800" />
+                </button>
+              </div>
+
+              {/* Dots Navigation */}
+              <div className="flex gap-2 justify-center mt-6">
+                {currentImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      currentImageIndex === index 
+                        ? 'w-8 h-3 bg-gradient-to-r from-orange-600 to-amber-600' 
+                        : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Image Counter */}
+              <div className="text-center mt-4">
+                <span className="text-sm font-semibold text-gray-600">
+                  {currentImageIndex + 1} / {currentImages.length}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Image Slider - Only for Plumbing Services */}
+        {serviceId === 'plumbing-services' && (
+          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-3 text-center">Our Work Gallery</h3>
+            <p className="text-center text-gray-600 mb-8">Professional plumbing installations and repairs</p>
+            
+            <div className="relative max-w-3xl mx-auto">
+              {/* Main Image Slider */}
+              <div className="relative h-[350px] rounded-xl overflow-hidden shadow-2xl bg-gray-900">
+                {currentImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <div className="w-full h-full relative">
+                      <img 
+                        src={image.url} 
+                        alt={image.title}
+                        className="absolute inset-0 w-full h-full"
+                        style={{ 
+                          objectFit: 'cover',
+                          objectPosition: image.position || 'center'
+                        }}
+                      />
+                    </div>
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    
+                    {/* Image Details */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h4 className="text-xl font-bold mb-2">{image.title}</h4>
+                      <p className="text-sm text-gray-200">{image.description}</p>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Navigation Buttons */}
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={20} className="text-gray-800" />
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={20} className="text-gray-800" />
+                </button>
+              </div>
+
+              {/* Dots Navigation */}
+              <div className="flex gap-2 justify-center mt-6">
+                {currentImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      currentImageIndex === index 
+                        ? 'w-8 h-3 bg-gradient-to-r from-blue-600 to-cyan-600' 
+                        : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Image Counter */}
+              <div className="text-center mt-4">
+                <span className="text-sm font-semibold text-gray-600">
+                  {currentImageIndex + 1} / {currentImages.length}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Image Slider - Only for House & Marquee Decorating Services */}
+        {serviceId === 'house-marquee-decorating' && (
+          <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-8 shadow-lg mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-3 text-center">Our Work Gallery</h3>
+            <p className="text-center text-gray-600 mb-8">Beautiful house and marquee decorations</p>
+            
+            <div className="relative max-w-3xl mx-auto">
+              {/* Main Image Slider */}
+              <div className="relative h-[350px] rounded-xl overflow-hidden shadow-2xl bg-gray-900">
+                {currentImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <div className="w-full h-full relative">
+                      <img 
+                        src={image.url} 
+                        alt={image.title}
+                        className="absolute inset-0 w-full h-full"
+                        style={{ 
+                          objectFit: 'cover',
+                          objectPosition: image.position || 'center'
+                        }}
+                      />
+                    </div>
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    
+                    {/* Image Details */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h4 className="text-xl font-bold mb-2">{image.title}</h4>
+                      <p className="text-sm text-gray-200">{image.description}</p>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Navigation Buttons */}
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={20} className="text-gray-800" />
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={20} className="text-gray-800" />
+                </button>
+              </div>
+
+              {/* Dots Navigation */}
+              <div className="flex gap-2 justify-center mt-6">
+                {currentImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      currentImageIndex === index 
+                        ? 'w-8 h-3 bg-gradient-to-r from-rose-600 to-pink-600' 
+                        : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Image Counter */}
+              <div className="text-center mt-4">
+                <span className="text-sm font-semibold text-gray-600">
+                  {currentImageIndex + 1} / {currentImages.length}
+                </span>
               </div>
             </div>
           </div>

@@ -9,6 +9,8 @@ const Services = lazy(() => import('./pages/Services'))
 const Problem = lazy(() => import('./pages/Problem'))
 const Contact = lazy(() => import('./pages/Contact'))
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -332,6 +334,12 @@ function App() {
       </footer>
           </>
         } />
+        
+        {/* About Page Route */}
+        <Route path="/about" element={<AboutPage />} />
+        
+        {/* Services Page Route */}
+        <Route path="/services" element={<ServicesPage />} />
         
         {/* Service Detail Route */}
         <Route path="/service/:serviceId" element={<ServiceDetail />} />
