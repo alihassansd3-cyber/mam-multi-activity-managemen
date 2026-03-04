@@ -5,12 +5,14 @@ import { preloadAllImages } from './utils/imagePreloader'
 
 // Lazy load components for better performance
 const Choose = lazy(() => import('./pages/Choose'))
+const DirectorMessage = lazy(() => import('./pages/DirectorMessage'))
 const Services = lazy(() => import('./pages/Services'))
 const Problem = lazy(() => import('./pages/Problem'))
 const Contact = lazy(() => import('./pages/Contact'))
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
+const GetQuote = lazy(() => import('./pages/GetQuote'))
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -174,7 +176,7 @@ function App() {
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 min-h-[100px]">
+                  <div className="grid grid-cols-3 gap-6 md:gap-8 min-h-[100px]">
                     <div className="text-center">
                       <div className="text-3xl sm:text-4xl md:text-5xl font-black text-cyan-400 mb-1 md:mb-2">500+</div>
                       <div className="text-xs sm:text-sm text-gray-300 font-medium uppercase tracking-wider">Projects</div>
@@ -187,10 +189,6 @@ function App() {
                       <div className="text-3xl sm:text-4xl md:text-5xl font-black text-cyan-400 mb-1 md:mb-2">24/7</div>
                       <div className="text-xs sm:text-sm text-gray-300 font-medium uppercase tracking-wider">Support</div>
                     </div>
-                    <div className="text-center">
-                      <div className="text-3xl sm:text-4xl md:text-5xl font-black text-cyan-400 mb-1 md:mb-2">10+</div>
-                      <div className="text-xs sm:text-sm text-gray-300 font-medium uppercase tracking-wider">Years</div>
-                    </div>
                   </div>
                 </div>
               ))}
@@ -201,6 +199,9 @@ function App() {
 
       {/* Why Choose Us Section */}
       <Choose />
+
+      {/* Director Message Section */}
+      <DirectorMessage />
 
       {/* Services Section */}
       <Services />
@@ -230,14 +231,14 @@ function App() {
                 </h2>
               </div>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Professional home maintenance and repair services. We provide reliable solutions for all your property needs with 25 years of experience.
+                Professional home maintenance and repair services. We provide reliable solutions for all your property needs with extensive experience.
               </p>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <div className="text-cyan-400 mt-1">📍</div>
                   <div>
                     <p className="font-semibold text-white">Service Location</p>
-                    <p className="text-gray-300 text-sm">Available for Residential & Commercial</p>
+                    <p className="text-gray-300 text-sm">England, Derby</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -255,33 +256,48 @@ function App() {
               <h3 className="text-xl font-bold mb-6 text-white">OUR SERVICES</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#services" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    <span className="text-cyan-400">›</span> Wedding Light
+                  </a>
+                </li>
+                <li>
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
                     <span className="text-cyan-400">›</span> Building & Construction
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
                     <span className="text-cyan-400">›</span> Repair & Maintenance
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
                     <span className="text-cyan-400">›</span> Electrical Services
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
                     <span className="text-cyan-400">›</span> Plumbing Services
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
-                    <span className="text-cyan-400">›</span> House Moving
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    <span className="text-cyan-400">›</span> House Moving Services
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
-                    <span className="text-cyan-400">›</span> Gardning service
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    <span className="text-cyan-400">›</span> House & Marquee Decorating
+                  </a>
+                </li>
+                <li>
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    <span className="text-cyan-400">›</span> Cleaning Services
+                  </a>
+                </li>
+                <li>
+                  <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    <span className="text-cyan-400">›</span> Gardening Services
                   </a>
                 </li>
               </ul>
@@ -337,6 +353,9 @@ function App() {
         
         {/* About Page Route */}
         <Route path="/about" element={<AboutPage />} />
+        
+        {/* Get Quote Page Route */}
+        <Route path="/get-quote" element={<GetQuote />} />
         
         {/* Services Page Route */}
         <Route path="/services" element={<ServicesPage />} />

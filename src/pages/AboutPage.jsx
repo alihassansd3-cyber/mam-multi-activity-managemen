@@ -30,7 +30,7 @@ const AboutPage = memo(() => {
                 Who We Are
               </h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                MAM Multi Activity Management is a leading provider of comprehensive property services, established with a vision to deliver excellence in every project we undertake. With over 25 years of experience, we have built a reputation for quality, reliability, and customer satisfaction.
+                MAM Multi Activity Management is a leading provider of comprehensive property services, established with a vision to deliver excellence in every project we undertake. With extensive experience, we have built a reputation for quality, reliability, and customer satisfaction.
               </p>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
                 Our team of certified professionals specializes in a wide range of services including construction, electrical work, plumbing, gardening, and event services. We pride ourselves on our commitment to delivering projects on time and within budget.
@@ -49,11 +49,7 @@ const AboutPage = memo(() => {
           </div>
 
           {/* Stats Section */}
-          <div className="grid md:grid-cols-4 gap-6 mb-20">
-            <div className="bg-gradient-to-br from-indigo-600 to-blue-600 rounded-2xl p-6 text-white text-center">
-              <p className="text-5xl font-black mb-2">25+</p>
-              <p className="text-lg">Years Experience</p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-20">
             <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-6 text-white text-center">
               <p className="text-5xl font-black mb-2">1000+</p>
               <p className="text-lg">Projects Completed</p>

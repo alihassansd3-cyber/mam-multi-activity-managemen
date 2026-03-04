@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Building2, Wrench, Zap, Droplets, Truck, Flame, Home, Phone, Mail, Shield, Award, Clock, CheckCircle } from 'lucide-react';
+import { Building2, Wrench, Zap, Droplets, Truck, Flame, Home, Phone, Mail, Shield, Award, Clock, CheckCircle, Sparkles } from 'lucide-react';
 import { useMemo, memo, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -11,7 +11,8 @@ const ServicesPage = memo(() => {
     {
       icon: <Zap size={40} />,
       title: 'Wedding Light',
-      description: 'Professional wedding and event lighting services to make your special day magical and memorable with stunning light decorations.',
+      shortDesc: 'Transform your special moments with stunning lighting designs and elegant decorations',
+      description: 'Create magical memories with our professional wedding lighting services. We specialize in elegant light installations, ambient decorations, and complete event illumination to make your celebration truly unforgettable.',
       color: 'from-pink-500 to-purple-500',
       bgImage: '/src/assets/photorealistic-wedding-venue-with-intricate-decor-ornaments.jpg',
       slug: 'wedding-light'
@@ -19,7 +20,8 @@ const ServicesPage = memo(() => {
     {
       icon: <Building2 size={40} />,
       title: 'Building & Construction',
-      description: 'We provide professional building services including construction work, property extensions, renovations, and general building projects.',
+      shortDesc: 'Expert construction solutions from new builds to complete property renovations',
+      description: 'Comprehensive building services delivered by experienced professionals. From ground-up construction to property extensions and complete renovations, we bring your vision to life with quality craftsmanship.',
       color: 'from-blue-500 to-cyan-500',
       bgImage: '/src/assets/working-with-blueprint.jpg',
       slug: 'building-construction'
@@ -27,7 +29,8 @@ const ServicesPage = memo(() => {
     {
       icon: <Wrench size={40} />,
       title: 'Repair & Maintenance',
-      description: 'Our team offers reliable repair and maintenance services to keep your property safe and in good condition.',
+      shortDesc: 'Comprehensive property maintenance ensuring safety and lasting quality',
+      description: 'Keep your property in perfect condition with our reliable maintenance services. Our skilled team handles all repairs, preventive maintenance, and emergency fixes to protect your investment.',
       color: 'from-purple-500 to-pink-500',
       bgImage: '/src/assets/builder-orange-work-clothes-using-hammer-with-stand-different-tools-near-workshop.jpg',
       slug: 'repair-maintenance'
@@ -35,7 +38,8 @@ const ServicesPage = memo(() => {
     {
       icon: <Zap size={40} />,
       title: 'Electrical Services',
-      description: 'We provide electrical installation, wiring, lighting installation, electrical fault finding, and repair services.',
+      shortDesc: 'Certified electricians providing safe installations and reliable electrical solutions',
+      description: 'Professional electrical services for all your needs. From complete wiring installations to lighting systems, fault diagnostics, and emergency repairs - all work certified and guaranteed.',
       color: 'from-yellow-500 to-orange-500',
       bgImage: '/src/assets/man-electrical-technician-working-switchboard-with-fuses.jpg',
       slug: 'electrical-services'
@@ -43,7 +47,8 @@ const ServicesPage = memo(() => {
     {
       icon: <Droplets size={40} />,
       title: 'Plumbing Services',
-      description: 'Our plumbing services include pipe installation, leak repairs, bathroom fittings, drainage work, and general plumbing maintenance.',
+      shortDesc: 'Professional plumbers delivering quality installations and emergency repairs',
+      description: 'Complete plumbing solutions for residential and commercial properties. Expert pipe installations, leak repairs, bathroom fittings, drainage systems, and 24/7 emergency plumbing services.',
       color: 'from-cyan-500 to-blue-500',
       bgImage: '/src/assets/worker-repairing-water-heater.jpg',
       slug: 'plumbing-services'
@@ -51,7 +56,8 @@ const ServicesPage = memo(() => {
     {
       icon: <Truck size={40} />,
       title: 'House Moving Services',
-      description: 'We provide safe and reliable house moving services to help you relocate easily. Our team ensures your belongings are handled carefully during transport.',
+      shortDesc: 'Stress-free relocation with professional packing and secure transportation',
+      description: 'Make your move effortless with our experienced moving team. We provide careful packing, secure loading, safe transportation, and efficient unpacking services for a smooth relocation experience.',
       color: 'from-green-500 to-emerald-500',
       bgImage: '/src/assets/medium-shot-delivery-people-working.jpg',
       slug: 'house-moving'
@@ -59,23 +65,26 @@ const ServicesPage = memo(() => {
     {
       icon: <Home size={40} />,
       title: 'House & Marquee Decorating',
-      description: 'Transform your events with our professional house and marquee decoration services. We create beautiful setups for weddings, parties, and special occasions.',
+      shortDesc: 'Creative decoration services bringing elegance to your celebrations',
+      description: 'Transform any space into a stunning venue with our decoration expertise. Specializing in weddings, parties, and corporate events with beautiful marquee setups and house decorations.',
       color: 'from-rose-500 to-pink-500',
       bgImage: '/src/assets/beautiful-wedding-altar-made-white-pink-curtains.jpg',
       slug: 'house-marquee-decorating'
     },
     {
-      icon: <Flame size={40} />,
-      title: 'Heating Service',
-      description: 'Professional heating system installation, repair, and maintenance services. Keep your home warm and comfortable all year round with our expert heating solutions.',
-      color: 'from-orange-500 to-red-500',
-      bgImage: '/src/assets/technician-checking-heating-system-boiler-room.jpg',
-      slug: 'heating-service'
+      icon: <Sparkles size={40} />,
+      title: 'Cleaning Services',
+      shortDesc: 'Thorough cleaning solutions for spotless homes and professional workspaces',
+      description: 'Experience pristine cleanliness with our professional cleaning team. Offering deep cleaning, regular maintenance, office cleaning, and specialized sanitization services using eco-friendly products.',
+      color: 'from-teal-500 to-cyan-500',
+      bgImage: '/src/assets/medium-shot-people-cleaning-building (1).jpg',
+      slug: 'cleaning-services'
     },
     {
       icon: <Flame size={40} />,
       title: 'Gardening Services',
-      description: 'Professional garden maintenance, lawn care, landscaping, and outdoor beautification services to keep your garden looking perfect all year round.',
+      shortDesc: 'Expert landscaping and garden care for beautiful outdoor spaces year-round',
+      description: 'Create and maintain stunning outdoor spaces with our gardening professionals. From landscape design to regular lawn care, seasonal planting, and complete garden transformations.',
       color: 'from-green-500 to-emerald-500',
       bgImage: '/src/assets/caucasian-male-worker-gloves-removing-dry-leaves-from-sidewalk-with-hand-blower-park-side-view.jpg',
       slug: 'gardening-services'
@@ -112,18 +121,18 @@ const ServicesPage = memo(() => {
               What We Offer
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              With over 25 years of experience, we provide comprehensive services for residential and commercial properties. Our expert team is dedicated to delivering quality workmanship and exceptional customer service.
+              With extensive experience, we provide comprehensive services for residential and commercial properties. Our expert team is dedicated to delivering quality workmanship and exceptional customer service.
             </p>
           </div>
 
           {/* Image with Description Section */}
           <div className="mb-20 bg-white rounded-3xl overflow-hidden shadow-2xl">
             <div className="grid md:grid-cols-2 gap-0">
-              <div className="relative h-[400px] md:h-auto">
+              <div className="relative h-[450px] md:h-[500px]">
                 <img 
-                  src="/src/assets/pexels-alexapopovich-16552854.jpg" 
+                  src="/src/assets/portrait-smiling-construction-worker (1).jpg" 
                   alt="Professional Services"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
@@ -151,12 +160,12 @@ const ServicesPage = memo(() => {
           </div>
 
           {/* Services Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <div
                 key={service.slug}
                 onClick={() => handleServiceClick(service.slug)}
-                className="group rounded-2xl overflow-hidden relative min-h-[320px] hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                className="group rounded-2xl overflow-hidden relative min-h-[280px] hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 style={{
                   backgroundImage: `url('${service.bgImage}')`,
                   backgroundSize: 'cover',
@@ -164,21 +173,32 @@ const ServicesPage = memo(() => {
                   backgroundRepeat: 'no-repeat'
                 }}
               >
-                {/* Dark overlay - appears on hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-blue-900/50 to-slate-900/60 group-hover:from-slate-900/85 group-hover:via-blue-900/80 group-hover:to-slate-900/85 transition-all duration-500"></div>
+                {/* Dark overlay - lighter by default, darker on hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-900/20 via-blue-900/30 to-slate-900/40 group-hover:from-slate-900/85 group-hover:via-blue-900/80 group-hover:to-slate-900/85 transition-all duration-500"></div>
                 
-                {/* Content - hidden by default, appears on hover */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                  <h3 className="text-xl font-bold text-white mb-3 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-100 text-sm leading-relaxed mb-4 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-200">
-                    {service.description}
-                  </p>
-                  <button className="text-cyan-300 hover:text-cyan-200 font-semibold transition-colors flex items-center gap-2 group-hover:gap-3 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-300">
-                    Learn More
-                    <span className="transition-all">→</span>
-                  </button>
+                {/* Content - Title and short description always visible */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <div className="h-[100px] flex flex-col justify-end">
+                    <h3 className="text-xl font-bold text-white mb-2 drop-shadow-2xl transition-all duration-500 line-clamp-1">
+                      {service.title}
+                    </h3>
+                    
+                    {/* Short description - Always visible */}
+                    <p className="text-white/90 text-sm leading-relaxed mb-3 drop-shadow-lg font-medium transition-all duration-500 line-clamp-2">
+                      {service.shortDesc}
+                    </p>
+                  </div>
+                  
+                  {/* Full description and button - Only visible on hover */}
+                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                    <p className="text-gray-100 text-sm leading-relaxed mb-4 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                      {service.description}
+                    </p>
+                    <button className="text-cyan-300 hover:text-cyan-200 font-semibold transition-colors flex items-center gap-2 group-hover:gap-3 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-200">
+                      Learn More
+                      <span className="transition-all">→</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -326,7 +346,7 @@ const ServicesPage = memo(() => {
                 Call Us Now
               </a>
               <a 
-                href="/#contact"
+                href="/get-quote"
                 className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md text-white border-2 border-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all"
               >
                 <Mail size={24} />

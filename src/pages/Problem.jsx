@@ -36,18 +36,9 @@ const Problem = memo(() => {
             <div className="w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-6"></div>
           </div>
 
-          {/* Experience Badge */}
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-8 py-4 mb-8">
-            <Award className="text-cyan-400" size={32} />
-            <div className="text-left">
-              <div className="text-5xl font-black text-cyan-400">25</div>
-              <div className="text-sm text-gray-300 font-semibold uppercase tracking-wider">Years Experience</div>
-            </div>
-          </div>
-
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            We have <span className="text-cyan-400 font-bold">25 years</span> of Home Maintenance business experience
+            We have <span className="text-cyan-400 font-bold">extensive</span> Home Maintenance business experience
           </p>
 
           {/* Buttons */}
@@ -57,7 +48,9 @@ const Problem = memo(() => {
               Learn More
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </button>
-            <button className="px-10 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border-2 border-white/30 hover:border-white rounded-lg font-bold text-lg transition-all shadow-xl hover:scale-105">
+            <button className="px-10 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border-2 border-white/30 hover:border-white rounded-lg font-bold text-lg transition-all shadow-xl hover:scale-105"
+              onClick={() => window.location.href = '/get-quote'}
+            >
               Get a Quote
             </button>
           </div>

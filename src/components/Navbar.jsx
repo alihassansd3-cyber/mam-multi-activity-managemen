@@ -1,5 +1,5 @@
 import { useState, memo, useCallback } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const Navbar = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,10 +25,16 @@ const Navbar = memo(() => {
                 alt="MAM Logo" 
                 className="h-14 w-auto object-contain"
               />
-              <div className="flex items-center gap-1">
-                <span className="text-3xl font-black text-gray-900">M</span>
-                <span className="text-3xl font-black text-white">A</span>
-                <span className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">M</span>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1">
+                  <span className="text-3xl font-black text-gray-900">M</span>
+                  <span className="text-3xl font-black text-white">A</span>
+                  <span className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">M</span>
+                </div>
+                <div className="flex items-center gap-1 -mt-1">
+                  <span className="text-sm font-black text-gray-900">Derby</span>
+                  <span className="text-sm font-black text-white">Services</span>
+                </div>
               </div>
             </a>
           </div>
@@ -47,14 +53,16 @@ const Navbar = memo(() => {
             <a href="/#contact" className="text-white px-4 py-2 rounded-lg hover:bg-white/20 font-medium transition-all">
               Contact
             </a>
+            
+            {/* Call Button */}
+            <a 
+              href="tel:123-456-789-0000"
+              className="flex items-center gap-2 bg-white text-indigo-600 px-6 py-2 rounded-lg hover:bg-gray-100 font-semibold transition-all hover:scale-105 shadow-lg"
+            >
+              <Phone size={18} />
+              <span>Call Now</span>
+            </a>
           </div>
-
-          {/* Login Button */}
-          {/* <div className="hidden md:block">
-            <button className="bg-white text-indigo-600 px-6 py-2 rounded-lg hover:bg-gray-100 font-semibold transition-all hover:scale-105 shadow-lg">
-              Login
-            </button>
-          </div> */}
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -101,9 +109,16 @@ const Navbar = memo(() => {
             >
               Contact
             </a>
-            <button className="w-full mt-2 bg-white text-indigo-600 px-6 py-3 rounded-lg hover:bg-gray-100 font-semibold transition-all">
-              Login
-            </button>
+            
+            {/* Call Button for Mobile */}
+            <a
+              href="tel:123-456-789-0000"
+              className="flex items-center justify-center gap-2 w-full mt-2 bg-white text-indigo-600 px-6 py-3 rounded-lg hover:bg-gray-100 font-semibold transition-all"
+              onClick={closeMenu}
+            >
+              <Phone size={18} />
+              Call Now
+            </a>
           </div>
         </div>
       )}

@@ -20,14 +20,14 @@ const Footer = memo(() => {
               </h2>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6">
-              Professional home maintenance and repair services. We provide reliable solutions for all your property needs with 25 years of experience.
+              Professional home maintenance and repair services. We provide reliable solutions for all your property needs with extensive experience.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <div className="text-cyan-400 mt-1">📍</div>
                 <div>
                   <p className="font-semibold text-white">Service Location</p>
-                  <p className="text-gray-300 text-sm">Available for Residential & Commercial</p>
+                  <p className="text-gray-300 text-sm">England Derby</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -45,33 +45,48 @@ const Footer = memo(() => {
             <h3 className="text-xl font-bold mb-6 text-white">OUR SERVICES</h3>
             <ul className="space-y-3">
               <li>
-                <a href="/#services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">›</span> Wedding Light
+                </a>
+              </li>
+              <li>
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
                   <span className="text-cyan-400">›</span> Building & Construction
                 </a>
               </li>
               <li>
-                <a href="/#services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
                   <span className="text-cyan-400">›</span> Repair & Maintenance
                 </a>
               </li>
               <li>
-                <a href="/#services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
                   <span className="text-cyan-400">›</span> Electrical Services
                 </a>
               </li>
               <li>
-                <a href="/#services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
                   <span className="text-cyan-400">›</span> Plumbing Services
                 </a>
               </li>
               <li>
-                <a href="/#services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <span className="text-cyan-400">›</span> House Moving
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">›</span> House Moving Services
                 </a>
               </li>
               <li>
-                <a href="/#services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <span className="text-cyan-400">›</span> Garden & Heating
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">›</span> House & Marquee Decorating
+                </a>
+              </li>
+              <li>
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">›</span> Cleaning Services
+                </a>
+              </li>
+              <li>
+                <a href="/services" className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">›</span> Gardening Services
                 </a>
               </li>
             </ul>

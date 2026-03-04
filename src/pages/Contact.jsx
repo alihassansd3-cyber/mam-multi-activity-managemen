@@ -1,7 +1,51 @@
 import { Mail, MapPin, Send, Phone, Clock, CheckCircle } from 'lucide-react';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 
 const Contact = memo(() => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Reset form first
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
+    
+    // Small delay then show success message and scroll
+    setTimeout(() => {
+      // Smooth scroll to top of contact section
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      
+      // Show success message
+      setShowSuccess(true);
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+    }, 100);
+  };
+
   return (
     <section id="contact" className="py-20 px-4 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50">
       <div className="max-w-7xl mx-auto">
@@ -98,12 +142,34 @@ const Contact = memo(() => {
           {/* Right Side - Contact Form */}
           <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-            <form className="space-y-5">
+            
+            {/* Success Message */}
+            {showSuccess && (
+              <div className="mb-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-500 rounded-xl p-6 animate-fade-in">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCircle size={24} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-green-800 mb-2">Message Sent Successfully!</h4>
+                    <p className="text-green-700 leading-relaxed">
+                      Thank you for contacting us. We have received your message and our team will get back to you within 24 hours. We appreciate your interest in our services.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
                 <input 
                   type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Enter your name"
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 />
               </div>
@@ -111,7 +177,11 @@ const Contact = memo(() => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
                 <input 
                   type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="your@email.com"
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 />
               </div>
@@ -119,7 +189,11 @@ const Contact = memo(() => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
                 <input 
                   type="tel" 
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder="123-456-7890"
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 />
               </div>
@@ -127,7 +201,11 @@ const Contact = memo(() => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Your Message</label>
                 <textarea 
                   rows="5"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell us about your project or question..."
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
                 ></textarea>
               </div>

@@ -46,7 +46,13 @@ export const preloadAllImages = () => {
     '/src/assets/marqi2.jpg',
     
     // Services page image
-    '/src/assets/pexels-alexapopovich-16552854.jpg',
+    '/src/assets/portrait-smiling-construction-worker (1).jpg',
+    
+    // About page image
+    '/src/assets/multi.jpg',
+    
+    // Cleaning service images
+    '/src/assets/medium-shot-people-cleaning-building (1).jpg',
     
     // About page image
     '/src/assets/pexels-tima-miroshnichenko-6196677.jpg'

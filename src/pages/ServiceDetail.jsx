@@ -248,11 +248,42 @@ const ServiceDetail = () => {
         { step: 5, title: 'Maintenance', desc: 'Ongoing support and service' }
       ]
     },
+    'cleaning-services': {
+      title: 'Cleaning Services',
+      image: '/src/assets/medium-shot-people-cleaning-building (1).jpg',
+      description: 'Professional cleaning services for homes and offices',
+      longDescription: 'Our professional cleaning team provides comprehensive cleaning solutions for residential and commercial properties. We use eco-friendly products and modern equipment to ensure spotless results every time.',
+      features: [
+        'Deep Cleaning Services',
+        'Regular House Cleaning',
+        'Office Cleaning',
+        'Carpet & Upholstery Cleaning',
+        'Window Cleaning',
+        'Post-Construction Cleaning',
+        'Move In/Move Out Cleaning',
+        'Sanitization Services'
+      ],
+      benefits: [
+        'Trained cleaning professionals',
+        'Eco-friendly cleaning products',
+        'Flexible scheduling options',
+        'Affordable pricing packages',
+        'Quality assurance guarantee',
+        'Fully insured service'
+      ],
+      process: [
+        { step: 1, title: 'Consultation', desc: 'Discuss your cleaning requirements' },
+        { step: 2, title: 'Custom Plan', desc: 'Create tailored cleaning schedule' },
+        { step: 3, title: 'Professional Cleaning', desc: 'Expert team performs thorough cleaning' },
+        { step: 4, title: 'Quality Check', desc: 'Ensure all areas meet standards' },
+        { step: 5, title: 'Follow-up', desc: 'Regular maintenance and support' }
+      ]
+    },
     'building-construction': {
       title: 'Building & Construction',
       image: '/src/assets/working-with-blueprint.jpg',
       description: 'Professional building and construction services for residential and commercial projects',
-      longDescription: 'We provide comprehensive building and construction services with over 25 years of experience. Our team of skilled professionals handles everything from small renovations to large-scale construction projects with precision and care.',
+      longDescription: 'We provide comprehensive building and construction services with extensive experience. Our team of skilled professionals handles everything from small renovations to large-scale construction projects with precision and care.',
       features: [
         'New Construction Projects',
         'Property Extensions & Additions',

@@ -29,33 +29,13 @@ const Home = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row gap-4">
             <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-cyan-500/50 hover:scale-105">
               Get Started Today
             </button>
             <button className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/30 hover:border-white/50 rounded-xl font-bold text-lg transition-all">
               Learn More →
             </button>
-          </div>
-
-          {/* Features Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {/* <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all">
-              <div className="text-4xl font-black text-cyan-400 mb-2">500+</div>
-              <div className="text-sm text-gray-300 font-medium">Projects Completed</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all">
-              <div className="text-4xl font-black text-cyan-400 mb-2">100%</div>
-              <div className="text-sm text-gray-300 font-medium">Client Satisfaction</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all">
-              <div className="text-4xl font-black text-cyan-400 mb-2">24/7</div>
-              <div className="text-sm text-gray-300 font-medium">Support Available</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all">
-              <div className="text-4xl font-black text-cyan-400 mb-2">10+</div>
-              <div className="text-sm text-gray-300 font-medium">Years Experience</div>
-            </div> */}
           </div>
         </div>
       </div>
